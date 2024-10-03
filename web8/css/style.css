@@ -1,0 +1,265 @@
+:root {
+    --primary-color: #46A151;
+    --back-light-color: #fcfcfc;
+    --text-color: #263138;
+    --line-height: 1.5;
+    --max-width-container: 1200px;
+}
+
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color); /* veja que aqui usamos uma variável definida anteriormente */
+}
+body > * {
+    width: 100%;
+}   
+header {
+    background-color: var(--back-light-color);
+
+    top: 0;
+    height: 10rem;
+    padding: 1rem;
+    box-shadow: 0px 3px 10px #ccccccaa;
+}
+
+.container-limiter {
+    /* define uma largura máxima - valor definido anteriormente em uma variável */
+    max-width: var(--max-width-container);
+    width: 100%; /** largura padrão de 100% até o limite definido acima */
+    padding: 0 5px; /** padding nas laterais para o conteúdo não ficar colado na borda */
+}
+.c{
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-top: 0;
+}
+.btn {
+    border-radius: 4px;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    display: inline-block;
+    /** tempo de transição para quando o elemento sofrer qualquer alteração em qualquer propriedade
+    * - isso torna a transição mais suave
+    */
+    transition: all 0.3s;
+    /** ao definir uma borda transparente, estamos "reservando" o espaço para tornar a borda visível depois e não gerar inconsistência nos espaçamentos */
+    border: 1px solid transparent;
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fcfcfc;
+    font-size: 1.2rem;
+}
+.btn-primary:hover {
+    background-color: #fcfcfc;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+.top-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    align-items: center;
+    height: 100%;
+}
+.brand-link {
+    margin-right: auto;
+}
+.brand-link img {
+    height: 48px;
+}
+.top-nav a:not(.brand-link) {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    text-decoration: none;
+    padding: 0.75rem 1.15rem;
+    /** define a duração de transição */
+    transition: all 0.3s;
+}
+.top-nav a:hover:not(.brand-link) {
+    background-color: var(--primary-color);
+    color: var(--back-light-color);
+}
+
+.hero-section {
+    background-size: 400% 400%;
+    background-image: linear-gradient(transparent, rgb(123, 233, 182));
+    width: 100%;
+}
+.hero-section .container-limiter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.hero-section img {
+    width: 100%;
+}
+
+.content-text {
+   font-size: 5vw;
+
+}
+
+.hero-section .btn {
+    margin-bottom: 0.5rem;
+}
+@keyframes hero-gradient {
+    0% {
+        background-position: 0% 25%;
+    }
+
+    25% {
+        background-position: 50% 50%;
+    }
+
+    50% {
+        background-position: 100% 75%;
+    }
+
+    75% {
+        background-position: 50% 50%;
+    }
+
+    100% {
+        background-position: 0% 25%;
+    }
+}
+.hero-section {
+    background-size: 400% 400%;
+    background-image: linear-gradient(transparent, rgb(123, 233, 182));
+    animation: 4s linear infinite alternate hero-gradient;
+}
+
+
+
+.cursos {
+    text-align: center;
+}
+    
+.item {
+        display: grid;
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        text-align: center;
+}
+.curso-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        padding: 20px;
+        width: 100%;
+        
+        vertical-align: middle;
+        
+}
+    
+.curso-card img {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+}
+    
+.curso-card h3 {
+        margin: 15px 0;
+}    
+.curso-card p {
+        color: #666;
+}
+.btfim {
+    border-radius: 4px;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    display: inline-block;
+
+    transition: all 0.3s;
+    border: 1px solid transparent;
+
+}
+.bota{
+    display: block;
+    justify-content: center;
+    padding: 50px;
+}
+.btfim {
+    background-color: var(--primary-color);
+    color: #fcfcfc;
+    font-size: 1.2rem;
+}
+.btfim:hover {
+    background-color: #fcfcfc;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+@media screen and (min-width: 1024px) {
+    .c{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    .content-center {
+        display: flex;
+        justify-content: center;
+      }
+    .hero-section .container-limiter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+    .hero-section img {
+        width: 500px;
+      }
+      
+    .hero-section .content-text {
+        width: 50%;
+      }
+      
+    .hero-section .btn {
+        margin-bottom: 0.5rem;
+      }
+      .cursos {
+        text-align: center;
+    }
+        
+    .item {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            margin-left: 16%;
+    
+    }
+    .curso-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            width: 300px;
+            
+            vertical-align: middle;
+            
+    }
+    .bota{
+        grid-column: 1 / -1;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+}
